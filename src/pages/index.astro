@@ -1,125 +1,142 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import Layout from "../layouts/Layout.astro";
+import Carousel from "../components/Carousel.astro";
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
 <Layout>
-	
     <main class="container">
-        <h1 class="title">💝 Feliz San Valentín Miriam 💝</h1>
-        
-        <div class="heart-container">
-            <!-- Corazones flotantes -->
-            <div class="heart">❤️</div>
-            <div class="heart">💖</div>
-            <div class="heart">💝</div>
+        <div class="row g-2">
+            <div class="col-md-12 text-center">
+                <h1 class="title">💝 Feliz San Valentín Miriam 💝</h1>
+            </div>
+            <div class="col-md 6">
+                <Carousel />
+            </div>
+            <div class="col-md-6">
+                <section class="love-message text-center">
+                    <p class="poem text-center">
+                        "Eres mi sol en días grises,<br />
+                        mi razón para sonreír,<br />
+                        contigo cada momento<brbr>
+                            se convierte en algo especial. 💞"
+                        </brbr>
+                    </p>
+
+                    <button class="love-button" id="btnAceptar"
+                        >¡Se mi San Valentin! 🎉</button
+                    >
+                    <h3>Te amo mas que a nada ojitos lindos!</h3>
+
+                    <footer class="footer">
+                        <p>Hecho con ❤️ por Junior Sulca</p>
+                    </footer>
+
+                    <audio autoplay loop controls id="miAudio">
+                        <source src="/audios/cancion.mp3" type="audio/mpeg" />
+                        Tu navegador no soporta el audio.
+                    </audio>
+                </section>
+            </div>
         </div>
 
-        <section class="love-message">
-            <p class="poem">
-                "Eres mi sol en días grises,<br>
-                mi razón para sonreír,<br>
-                contigo cada momento<brbr>
-                se convierte en algo especial. 💞"
-            </p>
-        </section>
-
-        <button class="love-button">¡Hazme click! 🎉</button>
-
-        <footer class="footer">
-            <p>Hecho con ❤️ por Junior Sulca</p>
-        </footer>
-		<audio autoplay loop>
-			<source src="/audios/cancion.mp3" type="audio/mpeg">
-			Tu navegador no soporta el audio.
-		  </audio>
-    </main>
-	<style is:global>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            background: linear-gradient(45deg, #ff6b6b, #ff8e8e, #ffb5b5);
-            min-height: 100vh;
-            font-family: 'Arial Rounded MT Bold', cursive;
-            color: #fff;
-        }
-
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 2rem;
-            text-align: center;
-        }
-
-        .title {
-            font-size: 3rem;
-            margin-bottom: 2rem;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-        }
-
-        .heart-container {
-            position: relative;
-            height: 200px;
-        }
-
-        .heart {
-            position: absolute;
-            animation: float 3s infinite ease-in-out;
-            font-size: 2rem;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-20px); }
-        }
-
-        .love-message {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 2rem;
-            border-radius: 15px;
-            margin: 2rem 0;
-            backdrop-filter: blur(5px);
-        }
-
-        .poem {
-            font-size: 1.2rem;
-            line-height: 1.6;
-        }
-
-        .love-button {
-            background: #ff4757;
-            color: white;
-            border: none;
-            padding: 1rem 2rem;
-            font-size: 1.2rem;
-            border-radius: 25px;
-            cursor: pointer;
-            transition: transform 0.3s ease;
-        }
-
-        .love-button:hover {
-            transform: scale(1.1);
-        }
-
-        .footer {
-            margin-top: 3rem;
-            opacity: 0.8;
-        }
-
-        @media (max-width: 768px) {
-            .container {
-                padding: 1rem;
+        <style is:global>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
             }
-            
+
+            body {
+                background: linear-gradient(45deg, #ff6b6b, #ff8e8e, #ffb5b5);
+                min-height: 100vh;
+                font-family: "Arial Rounded MT Bold", cursive;
+                color: #fff;
+            }
+
             .title {
+                font-size: 3rem;
+                margin-bottom: 2rem;
+                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            }
+
+            .heart-container {
+                position: relative;
+                height: 200px;
+            }
+
+            .heart {
+                position: absolute;
+                animation: float 3s infinite ease-in-out;
                 font-size: 2rem;
             }
-        }
-    </style>
+
+            @keyframes float {
+                0%,
+                100% {
+                    transform: translateY(0);
+                }
+                50% {
+                    transform: translateY(-20px);
+                }
+            }
+
+            .love-message {
+                background: rgba(255, 255, 255, 0.1);
+                padding: 2rem;
+                border-radius: 15px;
+                margin: 2rem 0;
+                backdrop-filter: blur(5px);
+            }
+
+            .poem {
+                font-size: 1.2rem;
+                line-height: 1.6;
+            }
+
+            .love-button {
+                background: #ff4757;
+                color: white;
+                border: none;
+                padding: 1rem 2rem;
+                font-size: 1.2rem;
+                border-radius: 25px;
+                cursor: pointer;
+                transition: transform 0.3s ease;
+            }
+
+            .love-button:hover {
+                transform: scale(1.1);
+            }
+
+            .footer {
+                margin-top: 3rem;
+                opacity: 0.8;
+            }
+
+            @media (max-width: 768px) {
+                .container {
+                    padding: 1rem;
+                }
+
+                .title {
+                    font-size: 2rem;
+                }
+            }
+        </style>
+        <script>
+            document.addEventListener("DOMContentLoaded", () => {
+                const btnAceptar = document.getElementById("btnAceptar")!;
+                btnAceptar.addEventListener("click", () => {
+                    confetti({
+                        particleCount: 100,
+                        spread: 70,
+                        origin: { y: 0.6 },
+                    });
+                });
+            });
+        </script>
+    </main>
 </Layout>
